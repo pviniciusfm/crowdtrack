@@ -21,6 +21,9 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development do
   gem "spring"
