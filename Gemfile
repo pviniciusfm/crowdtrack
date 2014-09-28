@@ -14,9 +14,11 @@ gem "mysql2"
 gem "rack-timeout"
 gem "rails", "4.1.4"
 gem "recipient_interceptor"
+#Bootstrap Install
 gem "sass-rails", "~> 4.0.3"
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', git: 'git://github.com/twbs/bootstrap-sass.git', ref: 'master'
 gem 'autoprefixer-rails'
+
 gem "simple_form"
 gem "title"
 gem "uglifier"

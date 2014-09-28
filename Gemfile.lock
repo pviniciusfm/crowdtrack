@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/twbs/bootstrap-sass.git
+  revision: c9f2e89f826db06e058ac2a97da4dd7fd6b10ccc
+  ref: master
+  specs:
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,8 +41,6 @@ GEM
       execjs
     awesome_print (1.2.0)
     bcrypt (3.1.7)
-    bootstrap-sass (3.1.0.2)
-      sass (~> 3.2)
     builder (3.2.2)
     byebug (3.4.0)
       columnize (~> 0.8)
@@ -262,7 +268,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   awesome_print
-  bootstrap-sass
+  bootstrap-sass!
   byebug
   capybara-webkit (>= 1.2.0)
   coffee-rails
