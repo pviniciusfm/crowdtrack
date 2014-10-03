@@ -1,18 +1,17 @@
 development: &default
-  adapter: mysql2
-  database: crowdbus-web-development
-  encoding: utf8
+  adapter: postgresql
   host: localhost
-  min_messages: warning
-  pool: 2
-  timeout: 5000
-  socket: /tmp/mysql.sock
-  username: root
+  encoding: unicode
+  database: crowdbus-development
+  pool: 5
+  username: crowdtrack
+  password:
 
 test:
   <<: *default
-  database: crowdbus-web-test
+  database: crowdbus-test
 
-# production:
-#   <<: *default
-#   database: crowdtrack
+production:
+  <<: *default
+  database: crowdtrack
+
