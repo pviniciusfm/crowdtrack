@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @notification.user_id %>
+</p>
+
+<p>
+  <strong>Geo coordinate:</strong>
+  <%= @notification.geo_coordinate %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @notification.distance %>
+</p>
+
+<p>
+  <strong>Route:</strong>
+  <%= @notification.route_id %>
+</p>
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>

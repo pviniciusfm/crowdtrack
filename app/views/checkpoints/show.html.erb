@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @checkpoint.label %>
+</p>
+
+<p>
+  <strong>Geo coordinate:</strong>
+  <%= @checkpoint.geo_coordinate %>
+</p>
+
+<%= link_to 'Edit', edit_checkpoint_path(@checkpoint) %> |
+<%= link_to 'Back', checkpoints_path %>

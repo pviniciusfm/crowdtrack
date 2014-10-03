@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Route:</strong>
+  <%= @track.route_id %>
+</p>
+
+<p>
+  <strong>Geo coordinate:</strong>
+  <%= @track.geo_coordinate %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @track.status %>
+</p>
+
+<%= link_to 'Edit', edit_track_path(@track) %> |
+<%= link_to 'Back', tracks_path %>
