@@ -10,13 +10,13 @@ gem "high_voltage"
 gem "i18n-tasks"
 gem "jquery-rails"
 gem "normalize-rails", "~> 3.0.0"
-gem "mysql2"
+gem "pg"
 gem "rack-timeout"
 gem "rails", "4.1.4"
 gem "recipient_interceptor"
 #Bootstrap Install
 gem "sass-rails", "~> 4.0.3"
-gem 'bootstrap-sass', git: 'git://github.com/twbs/bootstrap-sass.git', ref: 'master'
+gem 'bootstrap-sass', git: 'https://github.com/twbs/bootstrap-sass.git', ref: 'master'
 gem 'autoprefixer-rails'
 
 gem "simple_form"
