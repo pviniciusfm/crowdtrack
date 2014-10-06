@@ -12,8 +12,8 @@
 
 				<!-- Logo -->
 				<a href="index.html" class="navbar-brand">
-					<div><img alt="Pixel Admin" src="assets/images/pixel-admin/main-navbar-logo.png"></div>
-					PixelAdmin
+					<div><%= image_tag("pixel-admin/main-navbar-logo.png", :alt => 'CrowdTrack') %></div>
+					CrowdTrack
 				</a>
 
 				<!-- Main navbar toggle -->
@@ -87,29 +87,8 @@
 											<div class="notification-icon fa fa-truck bg-info"></div>
 										</div> <!-- / .notification -->
 
-										<div class="notification">
-											<div class="notification-title text-default">CRON DAEMON</div>
-											<div class="notification-description">Job <strong>"Clean DB"</strong> has been completed.</div>
-											<div class="notification-ago">12h ago</div>
-											<div class="notification-icon fa fa-clock-o bg-default"></div>
-										</div> <!-- / .notification -->
-
-										<div class="notification">
-											<div class="notification-title text-success">SYSTEM</div>
-											<div class="notification-description">Server <strong>up</strong>.</div>
-											<div class="notification-ago">12h ago</div>
-											<div class="notification-icon fa fa-hdd-o bg-success"></div>
-										</div> <!-- / .notification -->
-
-										<div class="notification">
-											<div class="notification-title text-warning">SYSTEM</div>
-											<div class="notification-description"><strong>Warning</strong>: Processor load <strong>92%</strong>.</div>
-											<div class="notification-ago">12h ago</div>
-											<div class="notification-icon fa fa-hdd-o bg-warning"></div>
-										</div> <!-- / .notification -->
-
 									</div> <!-- / .notifications-list -->
-									<a href="#" class="notifications-link">MORE NOTIFICATIONS</a>
+									<a href="#" class="notifications-link">Ver todas notificações</a>
 								</div> <!-- / .dropdown-menu -->
 							</li>
 							<li class="nav-icon-btn nav-icon-btn-success dropdown">
@@ -153,46 +132,6 @@
 										</div> <!-- / .message -->
 
 										<div class="message">
-											<img src="assets/demo/avatars/4.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet.</a>
-											<div class="message-description">
-												from <a href="#">Timothy Owens</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<img src="assets/demo/avatars/5.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-											<div class="message-description">
-												from <a href="#">Denise Steiner</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<img src="assets/demo/avatars/2.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet.</a>
-											<div class="message-description">
-												from <a href="#">Robert Jang</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<img src="assets/demo/avatars/2.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-											<div class="message-description">
-												from <a href="#">Robert Jang</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
 											<img src="assets/demo/avatars/3.jpg" alt="" class="message-avatar">
 											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
 											<div class="message-description">
@@ -212,28 +151,8 @@
 											</div>
 										</div> <!-- / .message -->
 
-										<div class="message">
-											<img src="assets/demo/avatars/5.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-											<div class="message-description">
-												from <a href="#">Denise Steiner</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<img src="assets/demo/avatars/2.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet.</a>
-											<div class="message-description">
-												from <a href="#">Robert Jang</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
 									</div> <!-- / .messages-list -->
-									<a href="#" class="messages-link">MORE MESSAGES</a>
+									<a href="#" class="messages-link">Ver todas</a>
 								</div> <!-- / .dropdown-menu -->
 							</li>
 <!-- /3. $END_NAVBAR_ICON_BUTTONS -->
@@ -246,13 +165,13 @@
 
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown">
-									<img src="assets/demo/avatars/1.jpg" alt="">
-									<span>John Doe</span>
+									<%= image_tag "pixel-admin/avatar.png" %>
+									<span>Bem Vindo!</span>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="#"><span class="label label-warning pull-right">New</span>Profile</a></li>
-									<li><a href="#"><span class="badge badge-primary pull-right">New</span>Account</a></li>
-									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Settings</a></li>
+									<li><a href="#">Perfil</a></li>
+									<li><a href="#"><span class="badge badge-primary pull-right">20</span>Contribuições</a></li>
+									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Configuração</a></li>
 									<li class="divider"></li>
 									<li><a href="pages-signin.html"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
 								</ul>

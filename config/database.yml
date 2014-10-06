@@ -5,7 +5,7 @@ development: &default
   database: crowdbus-development
   pool: 5
   username: crowdtrack
-  password:
+  password: 1234
 
 test:
   <<: *default
