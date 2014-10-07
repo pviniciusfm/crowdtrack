@@ -26,6 +26,10 @@ gem "unicorn"
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'sprockets_better_errors'
+
 
 group :development do
   gem "spring"
