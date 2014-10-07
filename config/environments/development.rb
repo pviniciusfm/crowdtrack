@@ -37,7 +37,6 @@ Rails.application.configure do
   # Raise an ActionController::UnpermittedParameters exception when
   # a parameter is not explicitly permitted but is passed anyway.
   config.action_controller.action_on_unpermitted_parameters = :raise
-  config.assets.raise_production_errors = true
 
   config.action_mailer.default_url_options = { host: 'localhost:6000' }
 end

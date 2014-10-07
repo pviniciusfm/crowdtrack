@@ -62,7 +62,10 @@ Rails.application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  #config.assets.precompile += %w( search.js )
+  Rails.application.config.assets.precompile += %w( pixel-admin-scss/themes/themes.css )
+  Rails.application.config.assets.precompile += %w( pixel-admin-scss/rtl/rtl.css )
+  Rails.application.config.assets.precompile += %w( pixel-admin-scss/widgets/widgets.css )
+
   config.assets.paths << Rails.root.join("pixel-admin-scss", "widgets")
   config.assets.paths << Rails.root.join("pixel-admin-scss", "rtl")
   config.assets.paths << Rails.root.join("pixel-admin-scss", "themes")
