@@ -13,4 +13,8 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap-datepicker-1.3.0/bootstrap-datepicker
+//= require app
+//= require utils
+//= require_tree ./components
+//= require jquery.slimscroll-1.3.2
