@@ -4,11 +4,11 @@
 // --------------------------------------------------
 
 // ### Variables
-@import "./../../libs/bootstrap-sass-3.1.1/bootstrap/variables"; // Default _variables.scss
+@import "bootstrap/variables"; // Default _variables.scss
 @import "./../variables";
 
 // ### Bootstrap"s mixins
-@import "./../../libs/bootstrap-sass-3.1.1/bootstrap/mixins";
+@import "bootstrap/mixins";
 @import "./../mixins";
 
 

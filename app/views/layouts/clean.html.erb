@@ -15,20 +15,10 @@
 	<![endif]-->
 </head>
 
-<body class="theme-default main-menu-animated <%= body_class %> <%= yield :body_append %>">
+<body class="theme-default <%= yield :body_append %>">
 	<script>var init = [];</script>
 
-
-	<div id="main-wrapper">
-		<%= render "navigation" -%>
-		<%= render "main_menu" -%>
-		<div id="content-wrapper">
-			<%= render "flashes" -%>
-			<%= yield%>
-		</div>
-		<div id="main-menu-bg"></div>
-	</div>
-
+	<%= yield %>
 
 	<!-- Demo script <script src="assets/demo/demo.js"></script> / Demo script -->
 	<!-- Get jQuery from Google CDN -->

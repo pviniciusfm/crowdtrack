@@ -1,0 +1,98 @@
+<% body_append 'page-signup' %>
+
+<!-- Page background -->
+<div id="page-signup-bg">
+	<!-- Background overlay -->
+	<div class="overlay"></div>
+	<!-- Replace this with your bg image -->
+	<%= image_tag('demo/signin-bg-1.jpg') %>
+</div>
+<!-- / Page background -->
+
+<!-- Container -->
+<div class="signup-container">
+	<!-- Header -->
+	<div class="signup-header">
+		<a href="index.html" class="logo">
+			<%= image_tag('demo/logo-big.png',style: 'margin-top: -5px;') %>
+			&nbsp;CrowdTrack
+		</a> <!-- / .logo -->
+		<div class="slogan">
+			Simples. Seguro. A Qualquer Hora.
+		</div> <!-- / .slogan -->
+	</div>
+	<!-- / Header -->
+
+	<!-- Form -->
+	<div class="signup-form">
+		<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		<!-- <form action="index.html" id="signup-form_id"> -->
+
+			<div class="signup-text">
+				<span>Registro</span>
+			</div>
+
+			<div class="form-group w-icon">
+				<input type="text" name="signup_name" id="name_id" class="form-control input-lg" placeholder="Nome">
+				<span class="fa fa-info signup-form-icon"></span>
+			</div>
+
+			<div class="form-group w-icon">
+				<input type="text" name="signup_email" id="email_id" class="form-control input-lg" placeholder="E-mail">
+				<span class="fa fa-envelope signup-form-icon"></span>
+			</div>
+
+			<div class="form-group w-icon">
+				<input type="text" name="signup_username" id="username_id" class="form-control input-lg" placeholder="Login">
+				<span class="fa fa-user signup-form-icon"></span>
+			</div>
+
+			<div class="form-group w-icon">
+				<input type="password" name="signup_password" id="password_id" class="form-control input-lg" placeholder="Senha">
+				<span class="fa fa-lock signup-form-icon"></span>
+			</div>
+
+			<div class="form-group" style="margin-top: 20px;margin-bottom: 20px;">
+				<label class="checkbox-inline">
+					<input type="checkbox" name="signup_confirm" class="px" id="confirm_id">
+					<span class="lbl">Eu aceito com os <a href="#" target="_blank">Termos e Condições</a></span>
+				</label>
+			</div>
+
+			<div class="form-actions">
+				<input type="submit" value="Registrar" class="signup-btn bg-primary">
+			</div>
+		<% end %>
+		<!-- / Form -->
+
+		<!-- "Sign In with" block -->
+		<div class="signup-with">
+			<!-- Facebook -->
+			<a href="index.html" class="signup-with-btn" style="background:#4f6faa;background:rgba(79, 111, 170, .8);">Registrar com <span>Facebook</span></a>
+		</div>
+		<!-- / "Sign In with" block -->
+	</div>
+	<!-- Right side -->
+</div>
+
+	<div class="have-account">
+	Você ja tem uma conta? Faça o <a href="pages-signin.html">login.</a>
+</div>
+
+<!-- <h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :password, required: true %>
+    <%= f.input :password_confirmation, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %> -->
+
+<%= render "devise/shared/links" %>
