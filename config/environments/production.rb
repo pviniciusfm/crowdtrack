@@ -65,7 +65,6 @@ Rails.application.configure do
   Rails.application.config.assets.precompile += %w( pixel-admin-scss/themes/themes.css )
   Rails.application.config.assets.precompile += %w( pixel-admin-scss/rtl/rtl.css )
   Rails.application.config.assets.precompile += %w( pixel-admin-scss/widgets/widgets.css )
-  Rails.application.config.assets.precompile += /\.(?:svg|eot|woff|ttf)\z/
   config.assets.paths << Rails.root.join("pixel-admin-scss", "widgets")
   config.assets.paths << Rails.root.join("pixel-admin-scss", "rtl")
   config.assets.paths << Rails.root.join("pixel-admin-scss", "themes")

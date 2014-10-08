@@ -35,7 +35,6 @@ module CrowdbusWeb
     config.assets.paths << Rails.root.join("extensions")
     config.assets.paths << Rails.root.join("components")
     config.assets.paths << Rails.root.join("plugins")
-    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
