@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :tracks
 
+  get 'maps', :to => 'tracks#maps'
+
   resources :vehicles
 
   resources :checkpoints
@@ -16,5 +18,5 @@ Rails.application.routes.draw do
   get 'home/index'
 
   devise_for :users
-  root :to => 'home#index'
+  root :to => 'tracks#maps'
 end

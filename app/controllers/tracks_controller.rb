@@ -19,6 +19,10 @@ class TracksController < ApplicationController
   def edit
   end
 
+  def maps
+    render :maps
+  end
+
   # POST /tracks
   def create
     @track = Track.new(track_params)
