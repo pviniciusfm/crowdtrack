@@ -33,22 +33,22 @@
 			</div>
 
 			<div class="form-group w-icon">
-				<input type="text" name="signup_name" id="name_id" class="form-control input-lg" placeholder="Nome">
+				<%= f.input :name, label: false, required: true,placeholder:"Digite o seu nome", autofocus: true, input_html: { :class => "form-control input-lg"}  %>
 				<span class="fa fa-info signup-form-icon"></span>
 			</div>
 
 			<div class="form-group w-icon">
-				<input type="text" name="signup_email" id="email_id" class="form-control input-lg" placeholder="E-mail">
+				<%= f.input :email, placeholder:"Digite o seu e-mail", label: false, required: true, autofocus: true, input_html: { :class => "form-control input-lg"}  %>
 				<span class="fa fa-envelope signup-form-icon"></span>
 			</div>
 
 			<div class="form-group w-icon">
-				<input type="text" name="signup_username" id="username_id" class="form-control input-lg" placeholder="Login">
-				<span class="fa fa-user signup-form-icon"></span>
+				<%= f.input :password, placeholder:"Digite uma senha", label: false, required: true, autofocus: true, input_html: { :class => "form-control input-lg"}  %>
+				<span class="fa fa-lock signup-form-icon"></span>
 			</div>
 
 			<div class="form-group w-icon">
-				<input type="password" name="signup_password" id="password_id" class="form-control input-lg" placeholder="Senha">
+				<%= f.input :password_confirmation, placeholder:"Digite a senha novamente", label: false, required: true, autofocus: true, input_html: { :class => "form-control input-lg"}  %>
 				<span class="fa fa-lock signup-form-icon"></span>
 			</div>
 
@@ -66,10 +66,10 @@
 		<!-- / Form -->
 
 		<!-- "Sign In with" block -->
-		<div class="signup-with">
+		<!-- <div class="signup-with"> -->
 			<!-- Facebook -->
-			<a href="index.html" class="signup-with-btn" style="background:#4f6faa;background:rgba(79, 111, 170, .8);">Registrar com <span>Facebook</span></a>
-		</div>
+			<!-- <a href="index.html" class="signup-with-btn" style="background:#4f6faa;background:rgba(79, 111, 170, .8);">Registrar com <span>Facebook</span></a> -->
+		<!-- </div> -->
 		<!-- / "Sign In with" block -->
 	</div>
 	<!-- Right side -->

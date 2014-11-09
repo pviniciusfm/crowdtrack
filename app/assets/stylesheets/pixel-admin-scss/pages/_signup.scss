@@ -45,7 +45,7 @@ html body.page-signup {
 //
 
 .page-signup {
-  
+
   // Container
   .signup-container {
     border-radius: $border-radius-base;
@@ -163,6 +163,7 @@ html body.page-signup {
     }
 
     input[type="text"],
+    input[type="email"],
     input[type="password"] {
       font-size: 15px;
       padding-left: $signin-form-group-w-icon-width + $padding-large-horizontal;

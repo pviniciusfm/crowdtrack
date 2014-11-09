@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008033200) do
+ActiveRecord::Schema.define(version: 20141109221431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "checkpoints", force: true do |t|
     t.string   "label"
-    t.decimal  "geo_coordinate"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,7 +55,8 @@ ActiveRecord::Schema.define(version: 20141008033200) do
 
   create_table "notifications", force: true do |t|
     t.integer  "user_id"
-    t.decimal  "geo_coordinate"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
     t.integer  "distance"
     t.integer  "route_id"
     t.datetime "created_at"
@@ -77,12 +79,29 @@ ActiveRecord::Schema.define(version: 20141008033200) do
   end
 
   create_table "tracks", force: true do |t|
-    t.integer  "route_id"
-    t.decimal  "geo_coordinate"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.integer  "accuracy"
     t.integer  "status"
+    t.integer  "trip_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tracks", ["trip_id"], name: "index_tracks_on_trip_id", using: :btree
+
+  create_table "trips", force: true do |t|
+    t.integer  "route_id"
+    t.integer  "user_created_id"
+    t.integer  "vehicle_id"
+    t.datetime "end_time_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trips", ["route_id"], name: "index_trips_on_route_id", using: :btree
+  add_index "trips", ["user_created_id"], name: "index_trips_on_user_created_id", using: :btree
+  add_index "trips", ["vehicle_id"], name: "index_trips_on_vehicle_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -99,6 +118,8 @@ ActiveRecord::Schema.define(version: 20141008033200) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "name"
+    t.string   "cpf"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

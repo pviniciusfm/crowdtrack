@@ -45,7 +45,7 @@ html body.page-signin {
 //
 
 .page-signin {
-  
+
   // Container
   .signin-container {
     border-radius: $border-radius-base;
@@ -55,7 +55,7 @@ html body.page-signin {
     z-index: 999;
   }
 
-  
+
   // Left side
   //
 
@@ -89,7 +89,7 @@ html body.page-signin {
     }
   }
 
-  
+
   // Right side
   //
 
@@ -215,6 +215,7 @@ html body.page-signin {
     }
 
     input[type="text"],
+    input[type="email"],
     input[type="password"] {
       font-size: 15px;
       padding-left: $signin-form-group-w-icon-width + $padding-large-horizontal;
@@ -342,7 +343,7 @@ html body.page-signin {
 
     // Container
     //
-  
+
     .signin-container {
       display: table;
       margin: 80px auto;

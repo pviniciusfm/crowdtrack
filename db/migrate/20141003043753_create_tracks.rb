@@ -1,10 +1,11 @@
 class CreateTracks < ActiveRecord::Migration
   def change
     create_table :tracks do |t|
-      t.integer :route_id
-      t.decimal :geo_coordinate
+      t.decimal :latitude
+      t.decimal :longitude
+      t.integer :accuracy
       t.integer :status
-
+      t.references :trip, index: true
       t.timestamps
     end
   end

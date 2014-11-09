@@ -2,14 +2,14 @@ development: &default
   adapter: postgresql
   host: localhost
   encoding: unicode
-  database: crowdbus-development
+  database: crowdtrack-development
   pool: 5
   username: crowdtrack
   password: 1234
 
 test:
   <<: *default
-  database: crowdbus-test
+  database: crowdtrack-test
 
 production:
   <<: *default
