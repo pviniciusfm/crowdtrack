@@ -26,10 +26,12 @@ gem "unicorn"
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'better_errors'
-gem 'binding_of_caller'
+# gem 'better_errors'
+# gem 'binding_of_caller'
 # gem 'sprockets_better_errors'
-
+gem 'jquery-datatables-rails', '~> 3.0.0'
+gem 'rqrcode'
+gem 'ranked-model'
 
 group :development do
   gem "spring"
@@ -42,6 +44,8 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "pry-rails"
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
   gem "rspec-rails", "~> 3.0.0"
 end
 

@@ -1,29 +1,20 @@
-<%= form_for(@track) do |f| %>
-  <% if @track.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@track.errors.count, "error") %> prohibited this track from being saved:</h2>
+<%= simple_form_for @track, defaults: { input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } }  do |f| %>
+  <div class="panel-heading">
+    <span class="panel-title">track</span>
+  </div>
+  <div class="panel-body">
+	  <%= f.error_notification %>
 
-      <ul>
-      <% @track.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :route_id %><br>
-    <%= f.number_field :route_id %>
-  </div>
-  <div class="field">
-    <%= f.label :geo_coordinate %><br>
-    <%= f.text_field :geo_coordinate %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+	  <div class="form-inputs">
+	    <%= f.association :trip, label_html: { class: 'col-sm-2' } %>
+	    <%= f.input :latitude, label_html: { class: 'col-sm-2' } %>
+	    <%= f.input :longitude, label_html: { class: 'col-sm-2' } %>
+	    <%= f.input :accuracy, label_html: { class: 'col-sm-2' } %>
+	  </div>
+	<div class="form-group" style="margin-bottom: 0;">
+		<div class="col-sm-offset-2 col-sm-10">
+			<%= f.button :submit, input_html: {class: "btn btn-primary" } %>
+		</div>
+	</div>
   </div>
 <% end %>

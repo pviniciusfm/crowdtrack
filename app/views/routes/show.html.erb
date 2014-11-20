@@ -5,20 +5,5 @@
   <%= @route.label %>
 </p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @route.company_id %>
-</p>
-
-<p>
-  <strong>Initial checkpoint:</strong>
-  <%= @route.initial_checkpoint_id %>
-</p>
-
-<p>
-  <strong>Final checkpoint:</strong>
-  <%= @route.final_checkpoint_id %>
-</p>
-
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>

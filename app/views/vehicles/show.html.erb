@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @vehicle.name %>
+  <strong>Descrição:</strong>
+  <%= @vehicle.description %>
 </p>
 
 <p>
-  <strong>Company:</strong>
-  <%= @vehicle.company_id %>
+  <strong>Placa:</strong>
+  <%= @vehicle.public_identifier %>
 </p>
 
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %>
+<p>
+  <strong>Empresa:</strong>
+  <%= @vehicle.company %>
+</p>
+
+<%= link_to 'Editar', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Voltar', vehicles_path %>

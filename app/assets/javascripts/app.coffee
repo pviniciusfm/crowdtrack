@@ -32,7 +32,7 @@ PixelAdminApp = ->
 
 ###
  * Start application. Method takes an array of initializers and a settings object(that overrides default settings).
- * 
+ *
  * @param  {Array} suffix
  * @param  {Object} settings
  * @return this
@@ -57,15 +57,29 @@ PixelAdminApp.prototype.start = (init=[], settings={}) ->
     # Run initializers
     $.proxy(initilizer, @)() for initilizer in @init
 
+    this.updateTables()
+
     $(window).trigger("pa.loaded")
 
     # Trigger resize event
     $(window).resize()
   @
 
+PixelAdminApp.prototype.updateTables = () ->
+        language = {
+                "url": "//cdn.datatables.net/plug-ins/725b2a2115b/i18n/Portuguese-Brasil.json"
+        }
+
+        $('.datatable').DataTable({
+          "language": language
+        });
+
+        getLanguage = () ->
+            return language;
+
 ###
  * Add initializer to the stack.
- * 
+ *
  * @param  {Function} callback
 ###
 PixelAdminApp.prototype.addInitializer = (callback) ->
@@ -73,7 +87,7 @@ PixelAdminApp.prototype.addInitializer = (callback) ->
 
 ###
  * Initialize plugin and add it to the plugins list.
- * 
+ *
  * @param  {String} plugin_name
  * @param  {Instance} plugin
 ###
@@ -83,7 +97,7 @@ PixelAdminApp.prototype.initPlugin = (plugin_name, plugin) ->
 
 ###
  * Save value in the localStorage/Cookies.
- * 
+ *
  * @param  {String}  key
  * @param  {String}  value
  * @param  {Boolean} use_cookies
@@ -99,7 +113,7 @@ PixelAdminApp.prototype.storeValue = (key, value, use_cookies=false) ->
 
 ###
  * Save key/value pairs in the localStorage/Cookies.
- * 
+ *
  * @param  {Object} pairs
  * @param  {Boolean} use_cookies
 ###
@@ -116,7 +130,7 @@ PixelAdminApp.prototype.storeValues = (pairs, use_cookies=false) ->
 
 ###
  * Get value from the localStorage/Cookies.
- * 
+ *
  * @param  {String} key
  * @param  {Boolean} use_cookies
 ###
@@ -138,7 +152,7 @@ PixelAdminApp.prototype.getStoredValue = (key, use_cookies=false, deflt=null) ->
 
 ###
  * Get values from the localStorage/Cookies.
- * 
+ *
  * @param  {Array} keys
  * @param  {Boolean} use_cookies
 ###
@@ -154,7 +168,7 @@ PixelAdminApp.prototype.getStoredValues = (keys, use_cookies=false, deflt=null) 
       return result
     catch e
       1
-  
+
   cookies = document.cookie.split(';')
   for cookie in cookies
     pos = cookie.indexOf('=')

@@ -1,4 +1,4 @@
-
+<%= simple_form_for @trackpoint, input_html: { class: 'panel form-horizontal' },defaults: { input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } }  do |f| %>
 <div class="input-group input-group-lg">
 	<span class="input-group-addon no-background"><i class="fa fa-search"></i></span>
 	<input type="text" name="s" class="form-control" placeholder="Digite a linha que deseja monitorar...">
@@ -9,6 +9,7 @@
 <div style="width: 100%; height:800px;">
 	<div class="widget-maps" id="mapTrack"></div>
 <div>
+<% end %>
 
 <% content_for :javascript do %>
 	 <script type="text/javascript"
@@ -17,8 +18,8 @@
     <script>
 		init.push(function () {
 			var mapOptions = {
-          center: { lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: { lat: -19.936372, lng: -43.966310},
+          zoom: 15
         };
         var map = new google.maps.Map(document.getElementById('mapTrack'),
             mapOptions);

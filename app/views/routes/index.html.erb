@@ -1,31 +1,27 @@
-<h1>Listing routes</h1>
+<div class="page-header">
+<i class="fa fa-road page-header-icon"></i>
+  <h1>Listando Rotas</h1>
+</div>
+<div class="form-group-margin">
+  <%= link_to 'Nova Rota', new_route_path, class: 'btn btn-labeled btn-primary' %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Label</th>
-      <th>Company</th>
-      <th>Initial checkpoint</th>
-      <th>Final checkpoint</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @routes.each do |route| %>
-      <tr>
-        <td><%= route.label %></td>
-        <td><%= route.company_id %></td>
-        <td><%= route.initial_checkpoint_id %></td>
-        <td><%= route.final_checkpoint_id %></td>
-        <td><%= link_to 'Show', route %></td>
-        <td><%= link_to 'Edit', edit_route_path(route) %></td>
-        <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <% @routes.each do |route| %>
+    <div class="col-sm-2 col-md-2">
+        <div class="stat-panel">
+          <!-- Danger background, vertically centered text -->
+          <div class="stat-cell bg-info valign-middle">
+            <!-- Stat panel bg icon -->
+            <i class="fa fa-bus bg-icon"></i>
+            <!-- Extra large text -->
+            <span class="text-xlg"><strong><%= route.label %></strong></span><br>
+            <!-- Big text -->
+            <span class="text-bg">Primeira rota até Segunda Rota</span><br>
+            <!-- Small text -->
+            <span class="text-sm"><a href="#"></a></span>
+          </div> <!-- /.stat-cell -->
+        </div> <!-- /.stat-panel -->
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Route', new_route_path %>
+</div>

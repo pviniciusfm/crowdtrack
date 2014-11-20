@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Route:</strong>
-  <%= @track.route_id %>
+  <strong>Trip:</strong>
+  <%= @track.trip %>
 </p>
 
 <p>
-  <strong>Geo coordinate:</strong>
-  <%= @track.geo_coordinate %>
+  <strong>Latitude:</strong>
+  <%= @track.latitude %>
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @track.status %>
+  <strong>Longitude:</strong>
+  <%= @track.longitude %>
+</p>
+
+<p>
+  <strong>Accuracy:</strong>
+  <%= @track.accuracy %>
 </p>
 
 <%= link_to 'Edit', edit_track_path(@track) %> |

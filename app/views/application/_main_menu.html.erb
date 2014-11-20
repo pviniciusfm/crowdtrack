@@ -35,27 +35,28 @@
 			</div>
 			<ul class="navigation">
 				<li>
-					<a href="#"><i class="menu-icon fa fa-map-marker"></i><span class="mm-text">Mapa de Linhas</span></a>
+					<a href="#"><i class="menu-icon fa fa-bar-chart-o"></i><span class="mm-text">Dashboard</span></a>
 				</li>
 				<li>
-					<a href="tables.html"><i class="menu-icon fa fa-users"></i><span class="mm-text">Funcionários</span></a>
+					<%= link_to maps_path do %>
+						<i class="menu-icon fa fa-map-marker"></i><span class="mm-text">Mapa de Viagens</span>
+					<%end %>
 				</li>
 				<li>
-					<a href="charts.html"><i class="menu-icon fa fa-bar-chart-o"></i><span class="mm-text">Dashboard</span></a>
-				</li>
-				<li class="mm-dropdown">
-					<a href="#"><i class="menu-icon fa fa-bus"></i><span class="mm-text">Veículos</span><span class="label label-success">16</span></a>
-					<ul>
-						<li>
-							<a tabindex="-1" href="pages-pricing.html"><span class="mm-text">Plans &amp; pricing</span></a>
-						</li>
-						<li>
-							<a tabindex="-1" href="pages-blank.html"><span class="mm-text">Blank page</span></a>
-						</li>
-					</ul>
+					<%= link_to vehicles_path do %>
+						<i class="menu-icon fa fa-bus"></i><span class="mm-text">Veículos</span>
+					<%end %>
 				</li>
 				<li>
-					<a href="complete-ui.html"><i class="menu-icon fa fa-mobile"></i><span class="mm-text">Aplicativo</span></a>
+					<%= link_to routes_path do %>
+						<i class="menu-icon fa fa-road"></i><span class="mm-text">Rotas</span>
+					<%end %>
+				</li>
+				<li>
+					<a href="#"><i class="menu-icon fa fa-users"></i><span class="mm-text">Funcionários</span></a>
+				</li>
+				<li>
+					<a href="#"><i class="menu-icon fa fa-mobile"></i><span class="mm-text">Aplicativo</span></a>
 				</li>
 			</ul> <!-- / .navigation -->
 			<div class="menu-content">

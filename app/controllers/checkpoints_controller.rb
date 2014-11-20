@@ -3,7 +3,7 @@ class CheckpointsController < ApplicationController
 
   # GET /checkpoints
   def index
-    @checkpoints = Checkpoint.all
+    @checkpoints = Route.checkpoints
   end
 
   # GET /checkpoints/1
@@ -24,7 +24,7 @@ class CheckpointsController < ApplicationController
     @checkpoint = Checkpoint.new(checkpoint_params)
 
     if @checkpoint.save
-      redirect_to @checkpoint, notice: 'Checkpoint was successfully created.'
+      redirect_to @checkpoint, notice: 'Checkpoint registrado com sucesso.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class CheckpointsController < ApplicationController
   # PATCH/PUT /checkpoints/1
   def update
     if @checkpoint.update(checkpoint_params)
-      redirect_to @checkpoint, notice: 'Checkpoint was successfully updated.'
+      redirect_to @checkpoint, notice: 'Checkpoint atualizado com sucesso.'
     else
       render :edit
     end
@@ -42,12 +42,13 @@ class CheckpointsController < ApplicationController
   # DELETE /checkpoints/1
   def destroy
     @checkpoint.destroy
-    redirect_to checkpoints_url, notice: 'Checkpoint was successfully destroyed.'
+    redirect_to checkpoints_url, notice: 'Checkpoint excluído com sucesso.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_checkpoint
+      @route = Route.find(params[:route_id])
       @checkpoint = Checkpoint.find(params[:id])
     end
 

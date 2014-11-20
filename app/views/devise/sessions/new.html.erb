@@ -91,7 +91,9 @@
 	<!-- / Container -->
 
 	<div class="not-a-member">
-		Não se registrou? <a href="pages-signup.html">Registre-se aqui</a>
+		Não se registrou? <%= link_to new_user_registration_path do %>
+		  Registre-se aqui
+		<% end %>
 	</div>
 
 

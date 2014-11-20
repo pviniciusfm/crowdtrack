@@ -1,0 +1,41 @@
+<form method="post" id="formAddress">
+	<div class="input">
+		<input type="text" id="address" name="address">
+		<input type="submit" class="btn" value="Search">
+	</div>
+</form>
+
+<div class="widget-maps" id="mapCheckpoint" style="height: 500px; width: 100%;">
+
+</div>
+
+<% content_for :javascript do %>
+
+    <script>
+		function addMarkerAddress(){
+			GMaps.geocode({
+				address: $('#address').val(),
+				callback: function(results, status) {
+				    if (status == 'OK') {
+				      var latlng = results[0].geometry.location;
+				      map.setCenter(latlng.lat(), latlng.lng());
+				      map.addMarker({
+				        lat: latlng.lat(),
+				        lng: latlng.lng()
+				      });
+				    }
+			  	}
+			});
+		}
+
+		init.push(function () {
+			map = new GMaps({
+				  div: '#mapCheckpoint',
+				  lat: -19.936372,
+				  lng: -43.966310
+				});
+				$('#formAddress').on( "submit", function(evt){alert('acionou'); addMarkerAddress(); evt.preventDefault();} );
+		});
+
+	</script>
+<% end %>

@@ -1,29 +1,51 @@
-<h1>Listing tracks</h1>
+<%= form_tag(tracks_path, method: 'get', class: "form", remote: true,id: 'searchTrack') do %>
+  <div class="input-group input-group-lg">
+    <span class="input-group-addon no-background"><i class="fa fa-search"></i></span>
+    <input type="text" name="search" class="form-control" placeholder="Digite a linha que deseja monitorar...">
+    <span class="input-group-btn">
+      <button class="btn" type="submit">Procurar</button>
+    </span>
+  </div>
+  <div style="width: 100%; height:800px;">
+    <div class="widget-maps" id="mapTrack"></div>
+  <div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Route</th>
-      <th>Geo coordinate</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% content_for :javascript do %>
+   <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdiNjYdaziEZ4TnWakC7FjdASmTcGebpg">
+    </script>
+    <script>
+    init.push(function () {
 
-  <tbody>
-    <% @tracks.each do |track| %>
-      <tr>
-        <td><%= track.route_id %></td>
-        <td><%= track.geo_coordinate %></td>
-        <td><%= track.status %></td>
-        <td><%= link_to 'Show', track %></td>
-        <td><%= link_to 'Edit', edit_track_path(track) %></td>
-        <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        var map = new GMaps({
+          div: '#mapTrack',
+          lat: -19.936372,
+          lng: -43.966310
+        });
 
-<br>
+        $("#searchTrack").on("ajax:success",function(e, data, status, xhr){
+          var path = data.map(function(map){
+            var newArray = [map.latitude,map.longitude];
+            return newArray;
+          });
 
-<%= link_to 'New Track', new_track_path %>
+          map.drawPolyline({
+            path: path,
+            strokeColor: '#131540',
+            strokeOpacity: 0.6,
+            strokeWeight: 6
+          });
+
+          var lastActivity = path[0];
+          map.addMarker({
+            lat: lastActivity[0],
+            lng: lastActivity[1],
+            title: 'Onibus'
+          });
+
+        });
+    });
+  </script>
+<% end %>
+

@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :vehicle do
-    name "MyString"
-    company_id 1
+    description "MyString"
+    public_identifier "MyString"
+    company nil
   end
 end

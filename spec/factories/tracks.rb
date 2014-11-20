@@ -2,8 +2,9 @@
 
 FactoryGirl.define do
   factory :track do
-    route_id 1
-    geo_coordinate "9.99"
-    status 1
+    trip nil
+    latitude "9.99"
+    longitude "9.99"
+    accuracy "9.99"
   end
 end

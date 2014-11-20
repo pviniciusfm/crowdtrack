@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109221431) do
+ActiveRecord::Schema.define(version: 20141118203852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20141109221431) do
     t.decimal  "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "checkpoints_routes", id: false, force: true do |t|
+    t.integer "route_id"
+    t.integer "checkpoint_id"
+    t.integer "row_order"
   end
 
   create_table "companies", force: true do |t|
@@ -78,17 +84,28 @@ ActiveRecord::Schema.define(version: 20141109221431) do
     t.datetime "updated_at"
   end
 
+  add_index "routes", ["company_id"], name: "index_routes_on_company_id", using: :btree
+  add_index "routes", ["final_checkpoint_id"], name: "index_routes_on_final_checkpoint_id", using: :btree
+  add_index "routes", ["initial_checkpoint_id"], name: "index_routes_on_initial_checkpoint_id", using: :btree
+
   create_table "tracks", force: true do |t|
+    t.integer  "trip_id"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.integer  "accuracy"
-    t.integer  "status"
-    t.integer  "trip_id"
+    t.decimal  "accuracy"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "tracks", ["trip_id"], name: "index_tracks_on_trip_id", using: :btree
+
+  create_table "trip_checkpoints", force: true do |t|
+    t.integer  "trip"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "trips", force: true do |t|
     t.integer  "route_id"
@@ -129,10 +146,13 @@ ActiveRecord::Schema.define(version: 20141109221431) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vehicles", force: true do |t|
-    t.string   "name"
+    t.string   "description"
+    t.string   "public_identifier"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "vehicles", ["company_id"], name: "index_vehicles_on_company_id", using: :btree
 
 end

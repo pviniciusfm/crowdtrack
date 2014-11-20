@@ -18,3 +18,7 @@
 //= require utils
 //= require_tree ./components
 //= require jquery.slimscroll-1.3.2
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require gmaps-0.4.16
+//= require jquery-ui-1.10.4/jquery-ui.js

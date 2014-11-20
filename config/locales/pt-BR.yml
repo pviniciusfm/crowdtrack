@@ -1,0 +1,17 @@
+pt-BR:
+  title: 'asfas'
+  action:
+    new: 'Novo'
+    edit: 'Editar'
+    show: 'Visualizar'
+  vehicle:
+    title: 'Veículo'
+  activerecord:
+    attributes:
+      vehicle:
+        description: 'Descrição'
+        public_identifier: 'Placa'
+        company: "Empresa"
+      route:
+        title: "Rota"
+        label: "Nome"

@@ -3,7 +3,14 @@ class TracksController < ApplicationController
 
   # GET /tracks
   def index
-    @tracks = Track.all
+    if not params[:search].nil?
+      @tracks = Track.search_route params[:search]
+      render json: @tracks
+    end
+  end
+
+  def search
+
   end
 
   # GET /tracks/1
@@ -17,10 +24,6 @@ class TracksController < ApplicationController
 
   # GET /tracks/1/edit
   def edit
-  end
-
-  def maps
-    render :maps
   end
 
   # POST /tracks
@@ -50,13 +53,13 @@ class TracksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_track
-      @track = Track.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_track
+    @track = Track.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def track_params
-      params.require(:track).permit(:route_id, :geo_coordinate, :status)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def track_params
+    params.require(:track).permit(:trip_id, :latitude, :longitude, :accuracy)
+  end
 end
