@@ -1,4 +1,4 @@
-class Api::TracksController < Api::BaseController
+class Api::TracksController < ApplicationController
   before_action :set_track, only: [:show, :edit, :update, :destroy]
   before_filter :fetch_user
 

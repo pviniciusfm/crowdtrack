@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 20141118203852) do
     t.integer  "route_id"
     t.integer  "user_created_id"
     t.integer  "vehicle_id"
-    t.datetime "end_time_on"
+    t.datetime "end_time_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
           get 'routes'
           get 'vehicles'
           post 'start'
+        end
+        member do
           post 'end'
         end
       end

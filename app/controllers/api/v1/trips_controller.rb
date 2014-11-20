@@ -10,11 +10,13 @@ class Api::V1::TripsController < ApplicationController
 	def start
 		@trip = Trip.new(trip_params)
 		@trip.save!
+		respond_with @trip
 	end
 
 	def end
 		@trip.end_time_at = Time.now
 		@trip.save!
+		respond_with @trip
 	end
 
 	def vehicles
@@ -25,11 +27,11 @@ class Api::V1::TripsController < ApplicationController
 		respond_with Route.all
 	end
 
-	# PATCH/PUT /trips/1
 	def update
 		track = Track.new(track_params)
 		track.trip = @trip
 		track.save!
+		respond_with track
 	end
 
 	private
@@ -40,7 +42,7 @@ class Api::V1::TripsController < ApplicationController
 
 	# Only allow a trusted parameter "white list" through.
 	def trip_params
-		params.require(:trip).permit(:vehicle, :route, :latitude, :longitude, :accuracy)
+		params.require(:trip).permit(:vehicle_id, :route_id)
 	end
 	def track_params
       params.require(:track).permit(:trip_id, :latitude, :longitude, :accuracy)
