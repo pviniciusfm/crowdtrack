@@ -1,6 +1,6 @@
 
 class Api::V1::TripsController < ApplicationController
-	http_basic_authenticate_with :name => "admin", :password => "1234"
+	# http_basic_authenticate_with :name => "admin", :password => "1234"
 	protect_from_forgery with: :null_session
 	skip_before_filter :authenticate_user! # we don't need devise authentication here
 	respond_to :json
@@ -45,6 +45,6 @@ class Api::V1::TripsController < ApplicationController
 		params.require(:trip).permit(:vehicle_id, :route_id)
 	end
 	def track_params
-      params.require(:track).permit(:trip_id, :latitude, :longitude, :accuracy)
-  	end
+		params.require(:track).permit(:trip_id, :latitude, :longitude, :accuracy)
+	end
 end
