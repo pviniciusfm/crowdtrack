@@ -1,0 +1,18 @@
+<tr data-item-id="<%= "#{f.object.id}" %>">
+	<td>
+		<%= f.input :row_order, :as => :hidden %>
+		<%= f.input_field :label %>
+	</td>
+	<td>
+		<%= f.input_field :latitude %>
+	</td>
+	<td>
+		<%= f.input_field :longitude %>
+	</td>
+	<td>
+		<%= link_to "Mostrar Mapa", '#', :"data-toggle" => 'modal', :"data-target" => '#checkpointModal',:class => 'btn btn-labeled btn-primary' %>
+	</td>
+	<td>
+		<%= link_to_remove_association "Remover Caminho", f, :class => 'btn btn-labeled btn-danger' %>
+	</td>
+</tr>
