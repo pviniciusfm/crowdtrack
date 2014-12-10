@@ -41,7 +41,7 @@ SimpleForm.setup do |config|
 
     ## Inputs
     b.use :label
-    b.use :input, wrap_with: {class: "col-sm-10"}
+    b.use :input
     b.use :hint,  wrap_with: { tag: :p, class: :"help-block" }
     b.use :error, wrap_with: { tag: :p, class: :error }
   end

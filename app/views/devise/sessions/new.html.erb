@@ -58,7 +58,7 @@
 			<!-- "Sign In with" block -->
 			<div class="signin-with">
 				<!-- Facebook -->
-				<a href="index.html" class="signin-with-btn" style="background:#4f6faa;background:rgba(79, 111, 170, .8);">Fazer login utilizando <span>Facebook</span></a>
+				<%= link_to "Fazer login com Facebook", user_omniauth_authorize_path(:facebook), {:class => "signin-with-btn", :style => "background:#4f6faa;background:rgba(79, 111, 170, .8);"} %>
 			</div>
 			<!-- / "Sign In with" block -->
 
