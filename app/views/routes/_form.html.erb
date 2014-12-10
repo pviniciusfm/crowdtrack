@@ -1,15 +1,49 @@
-<%= simple_form_for @route, input_html: { class: 'panel form-horizontal' },defaults: { input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } }  do |f| %>
-  <div class="panel-heading">
-    <span class="panel-title">Rota</span>
+<%= simple_form_for @route, input_html: { class: 'form-horizontal' }, defaults: { input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } }  do |f| %>
+  <div class="panel colourable">
+    <div class="panel-heading">
+      <span class="panel-title">Rota</span>
+    </div>
+    <div class="panel-body">
+      <%= f.error_notification %>
+      <%= f.input :label, label_html: { class: 'col-sm-2' }%>
+    </div>
   </div>
-  <div class="panel-body">
-	  <%= f.error_notification %>
-	  <%= f.input :label, label_html: { class: 'col-sm-2' }%>
-	  <%= render "checkpoints/index" %>
-	<div class="form-group" style="margin-bottom: 0;">
-		<div class="col-sm-offset-2 col-sm-10">
-			<%= f.button :submit, input_html: {class: "btn btn-primary" } %>
-		</div>
-	</div>
+  <div class="panel colourable">
+    <div class="panel-heading">
+      <span class="panel-title">Caminhos</span>
+    </div>
+    <div class="panel-body">
+      <table class="table" id="checkpoints">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% f.simple_fields_for :checkpoints do |checkpoint|  %>
+            <%= render 'checkpoint_fields', :f => checkpoint %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer text-right">
+      <%= link_to_add_association 'Novo caminho', f, :checkpoints, data: {:'association-insertion-node' => '#checkpoints', :'association-insertion-method' => :append}, :class => 'btn btn-labeled btn-primary' %>
+      <%= f.button :submit, {class: "btn btn-labeled btn-primary" } %>
+    </div>
   </div>
+<% end %>
+<% content_for :javascript do %>
+  <script>
+    	  $('#checkpoints').on('cocoon:before-insert', function(e, insertedItem) {
+    	  	debugger;
+    	  	var lastIndex = $('#checkpoints tr:last').attr('data-item-id');
+    	  	if(!lastIndex) lastIndex=0;
+    	  	insertedItem.attr('data-item-id',lastIndex+1);
+    	  	var inputElem = insertedItem.find('input[type=hidden]:first');
+    	  	inputElem.attr('value',lastIndex+1);
+    	  });
+  </script>
 <% end %>

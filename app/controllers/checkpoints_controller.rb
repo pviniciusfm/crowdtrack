@@ -3,7 +3,7 @@ class CheckpointsController < ApplicationController
 
   # GET /checkpoints
   def index
-    @checkpoints = Route.checkpoints
+    @checkpoints = Route.checkpoints.rank(:row_order).all
   end
 
   # GET /checkpoints/1
@@ -13,6 +13,14 @@ class CheckpointsController < ApplicationController
   # GET /checkpoints/new
   def new
     @checkpoint = Checkpoint.new
+  end
+
+  def update_row_order
+    @checkpoint = Checkpoint.find(checkpoint_params[:checkpoint_id])
+    @checkpoint.row_order = checkpoint_params[:row_order_position]
+    @checkpoint.save
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
 
   # GET /checkpoints/1/edit
@@ -46,14 +54,14 @@ class CheckpointsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_checkpoint
-      @route = Route.find(params[:route_id])
-      @checkpoint = Checkpoint.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_checkpoint
+    @route = Route.find(params[:route_id])
+    @checkpoint = Checkpoint.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def checkpoint_params
-      params.require(:checkpoint).permit(:label, :geo_coordinate)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def checkpoint_params
+    params.require(:checkpoint).permit(:label, :geo_coordinate)
+  end
 end

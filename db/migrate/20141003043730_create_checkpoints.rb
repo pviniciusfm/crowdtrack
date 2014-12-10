@@ -4,7 +4,8 @@ class CreateCheckpoints < ActiveRecord::Migration
       t.string :label
       t.decimal :latitude
       t.decimal :longitude
-
+      t.belongs_to :route, index: true
+  	  t.integer :row_order
       t.timestamps
     end
   end

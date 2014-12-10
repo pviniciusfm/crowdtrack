@@ -1,27 +1,31 @@
 <div class="page-header">
-<i class="fa fa-road page-header-icon"></i>
+  <i class="fa fa-road page-header-icon"></i>
   <h1>Listando Rotas</h1>
 </div>
 <div class="form-group-margin">
   <%= link_to 'Nova Rota', new_route_path, class: 'btn btn-labeled btn-primary' %>
 </div>
-
 <div class="row">
-  <% @routes.each do |route| %>
-    <div class="col-sm-2 col-md-2">
-        <div class="stat-panel">
-          <!-- Danger background, vertically centered text -->
-          <div class="stat-cell bg-info valign-middle">
-            <!-- Stat panel bg icon -->
-            <i class="fa fa-bus bg-icon"></i>
-            <!-- Extra large text -->
-            <span class="text-xlg"><strong><%= route.label %></strong></span><br>
-            <!-- Big text -->
-            <span class="text-bg">Primeira rota até Segunda Rota</span><br>
-            <!-- Small text -->
-            <span class="text-sm"><a href="#"></a></span>
-          </div> <!-- /.stat-cell -->
-        </div> <!-- /.stat-panel -->
-      </div>
-    <% end %>
+<% @routes.each do |route| %>
+
+      <div class="col-sm-2 col-md-2">
+
+          <div class="stat-panel">
+            <!-- Danger background, vertically centered text -->
+            <div class="stat-cell bg-info valign-middle">
+              <%= link_to edit_route_path(route) do %>
+              <!-- Stat panel bg icon -->
+              <i class="fa fa-bus bg-icon"></i>
+              <!-- Extra large text -->
+              <span class="text-xlg"><strong><%= route.label %></strong></span><br>
+              <!-- Big text -->
+              <span class="text-bg"><%= route.initial_checkpoint.label %> à <%= route.final_checkpoint.label %></span><br>
+              <!-- Small text -->
+              <span class="text-sm"><a href="#"></a></span>
+              <% end #link_to %>
+            </div> <!-- /.stat-cell -->
+          </div> <!-- /.stat-panel -->
+        </div>
+
+    <% end #each %>
 </div>

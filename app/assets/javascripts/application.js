@@ -22,3 +22,4 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require gmaps-0.4.16
 //= require jquery-ui-1.10.4/jquery-ui.js
+//= require cocoon

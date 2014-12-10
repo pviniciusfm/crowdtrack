@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   resources :companies
 
   resources :routes do
-    resources :checkpoint
+    resources :checkpoint do
+      post :update_row_order, on: :collection
+    end
   end
 
   resources :trips do

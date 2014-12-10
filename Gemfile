@@ -20,6 +20,7 @@ gem 'bootstrap-sass', git: 'https://github.com/twbs/bootstrap-sass.git', ref: 'm
 gem 'autoprefixer-rails'
 
 gem "simple_form"
+gem "cocoon"
 gem "title"
 gem "uglifier"
 gem "unicorn"

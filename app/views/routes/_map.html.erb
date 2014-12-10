@@ -1,13 +1,41 @@
-<form method="post" id="formAddress">
-	<div class="input">
-		<input type="text" id="address" name="address">
-		<input type="submit" class="btn" value="Search">
+<div class="modal fade" id="checkpointModal" tabindex="-1" role="dialog" aria-labelledby="Endereço Rota" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Endereço Rota</h4>
+      </div>
+      <div class="modal-body">
+      <form method="post" id="formAddress">
+		<div class="input">
+			<input type="text" id="address" name="address">
+			<input type="submit" class="btn" value="Procurar">
+		</div>
+		</form>
+        <div class="widget-maps" id="checkpointMap" style="height: 500px; width: 500px;">
+		</div>
+		<div id="selectedGPS" class="text-center">
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Escolher</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="panel colourable">
+	<div class="panel-heading">
+		<span class="panel-title">Mapa</span>
 	</div>
-</form>
-
-<div class="widget-maps" id="mapCheckpoint" style="height: 500px; width: 100%;">
-
+	<div class="panel-body">
+		<div class="widget-maps" id="routeMap" style="height: 500px; width: 100%;">
+		</div>
+	</div>
 </div>
+
+
 
 <% content_for :javascript do %>
 
@@ -18,24 +46,43 @@
 				callback: function(results, status) {
 				    if (status == 'OK') {
 				      var latlng = results[0].geometry.location;
-				      map.setCenter(latlng.lat(), latlng.lng());
-				      map.addMarker({
+				      checkpointMap.setCenter(latlng.lat(), latlng.lng());
+				      checkpointMap.addMarker({
 				        lat: latlng.lat(),
 				        lng: latlng.lng()
 				      });
+				      $('#selectedGPS').html("Latitude: "+latlng.lat() +" Longitude: "+latlng.lng());
 				    }
 			  	}
 			});
 		}
 
 		init.push(function () {
+			$('#formAddress').on("submit", function(evt){
+					checkpointMap.removeMarkers()
+					addMarkerAddress();
+					evt.preventDefault();}
+				);
+
 			map = new GMaps({
-				  div: '#mapCheckpoint',
+				  div: '#routeMap',
 				  lat: -19.936372,
 				  lng: -43.966310
 				});
-				$('#formAddress').on( "submit", function(evt){alert('acionou'); addMarkerAddress(); evt.preventDefault();} );
-		});
 
+			checkpointMap = new GMaps({
+				  div: '#checkpointMap',
+				  lat: -19.936372,
+				  lng: -43.966310
+				});
+
+			$('#checkpointModal').on('shown.bs.modal', function (e) {
+				$('#checkpointMap').height('500px');
+				$('#checkpointMap').width('100%');
+  				checkpointMap.refresh();
+			});
+
+
+		});
 	</script>
 <% end %>

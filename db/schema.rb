@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118203852) do
+ActiveRecord::Schema.define(version: 20141208141555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,15 +20,13 @@ ActiveRecord::Schema.define(version: 20141118203852) do
     t.string   "label"
     t.decimal  "latitude"
     t.decimal  "longitude"
+    t.integer  "route_id"
+    t.integer  "row_order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "checkpoints_routes", id: false, force: true do |t|
-    t.integer "route_id"
-    t.integer "checkpoint_id"
-    t.integer "row_order"
-  end
+  add_index "checkpoints", ["route_id"], name: "index_checkpoints_on_route_id", using: :btree
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -99,14 +97,6 @@ ActiveRecord::Schema.define(version: 20141118203852) do
 
   add_index "tracks", ["trip_id"], name: "index_tracks_on_trip_id", using: :btree
 
-  create_table "trip_checkpoints", force: true do |t|
-    t.integer  "trip"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "trips", force: true do |t|
     t.integer  "route_id"
     t.integer  "user_created_id"
@@ -151,6 +141,7 @@ ActiveRecord::Schema.define(version: 20141118203852) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "special_need_prep"
   end
 
   add_index "vehicles", ["company_id"], name: "index_vehicles_on_company_id", using: :btree

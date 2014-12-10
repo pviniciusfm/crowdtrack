@@ -8,6 +8,7 @@
 user = User.new
 user.email = 'test@example.com'
 user.password = '167454724'
+user.name = "Usuário Teste"
 user.password_confirmation = '167454724'
 user.save!
 
@@ -15,9 +16,25 @@ company = Company.new
 company.name = "Viação Fake LTDA."
 company.save!
 
+ini_chk = Checkpoint.new
+ini_chk.label = "Av. Silva lobo, 2051"
+ini_chk.latitude = -19.94184
+ini_chk.longitude = -43.965417
+ini_chk.row_order = 1
+ini_chk.save!
+
+final_chk = Checkpoint.new
+final_chk.label = "Rua Professor Mello Cançado, 273"
+final_chk.latitude = -19.958989
+final_chk.longitude = -43.9292619
+final_chk.row_order = 2
+final_chk.save!
+
 route = Route.new
 route.label = 2101
 route.company = company
+route.initial_checkpoint = ini_chk
+route.final_checkpoint = final_chk
 route.save!
 
 vehicle = Vehicle.new

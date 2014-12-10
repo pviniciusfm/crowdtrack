@@ -1,4 +1,5 @@
 <%= simple_form_for @vehicle, defaults: { input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } }  do |f| %>
+<div class="panel colourable">
   <div class="panel-heading">
     <span class="panel-title"><%= "%{action_name} %{vehicleTitle}" % {vehicleTitle: t('vehicle.title'), action_name: t('action.new')} %> </span>
   </div>
@@ -8,6 +9,7 @@
 	  <div class="form-inputs">
 	    <%= f.input :description, label_html: { class: 'col-sm-2' } %>
 	    <%= f.input :public_identifier, label_html: { class: 'col-sm-2' } %>
+	    <%= f.input :special_need_prep, label_html: { class: 'col-sm-2' } %>
 	  </div>
 	<div class="form-group" style="margin-bottom: 0;">
 		<div class="col-sm-offset-2 col-sm-10">
@@ -15,4 +17,5 @@
 		</div>
 	</div>
   </div>
+ </div>
 <% end %>
