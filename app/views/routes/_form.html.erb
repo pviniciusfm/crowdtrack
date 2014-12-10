@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <% f.simple_fields_for :checkpoints do |checkpoint|  %>
+          <%= f.simple_fields_for(:checkpoints) do |checkpoint|  %>
             <%= render 'checkpoint_fields', :f => checkpoint %>
           <% end %>
         </tbody>
@@ -38,9 +38,9 @@
 <% content_for :javascript do %>
   <script>
     	  $('#checkpoints').on('cocoon:before-insert', function(e, insertedItem) {
-    	  	debugger;
     	  	var lastIndex = $('#checkpoints tr:last').attr('data-item-id');
     	  	if(!lastIndex) lastIndex=0;
+          lastIndex = parseInt(lastIndex);
     	  	insertedItem.attr('data-item-id',lastIndex+1);
     	  	var inputElem = insertedItem.find('input[type=hidden]:first');
     	  	inputElem.attr('value',lastIndex+1);
