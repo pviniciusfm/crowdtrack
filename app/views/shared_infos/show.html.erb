@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Capacity rank:</strong>
+  <%= @shared_info.capacity_rank %>
+</p>
+
+<p>
+  <strong>Traffic rank:</strong>
+  <%= @shared_info.traffic_rank %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @shared_info.comments %>
+</p>
+
+<p>
+  <strong>Trip:</strong>
+  <%= @shared_info.trip %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @shared_info.user %>
+</p>
+
+<%= link_to 'Edit', edit_shared_info_path(@shared_info) %> |
+<%= link_to 'Back', shared_infos_path %>

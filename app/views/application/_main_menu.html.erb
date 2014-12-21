@@ -35,32 +35,33 @@
 			</div>
 			<ul class="navigation">
 				<li>
-					<a href="#"><i class="menu-icon fa fa-bar-chart-o"></i><span class="mm-text">Dashboard</span></a>
+					<%= link_to(dashboard_path) do %>
+						<i class="menu-icon fa fa-bar-chart-o"></i><span class="mm-text">Dashboard</span>
+					<% end %>
 				</li>
 				<li>
-					<%= link_to maps_path do %>
+					<%= link_to(maps_path) do %>
 						<i class="menu-icon fa fa-map-marker"></i><span class="mm-text">Mapa de Viagens</span>
 					<%end %>
 				</li>
 				<li>
-					<%= link_to vehicles_path do %>
+					<%= link_to(vehicles_path) do %>
 						<i class="menu-icon fa fa-bus"></i><span class="mm-text">Veículos</span>
 					<%end %>
 				</li>
 				<li>
-					<%= link_to routes_path do %>
+					<%= link_to(routes_path) do %>
 						<i class="menu-icon fa fa-road"></i><span class="mm-text">Rotas</span>
 					<%end %>
 				</li>
 				<li>
-					<a href="#"><i class="menu-icon fa fa-users"></i><span class="mm-text">Funcionários</span></a>
-				</li>
-				<li>
-					<a href="#"><i class="menu-icon fa fa-mobile"></i><span class="mm-text">Aplicativo</span></a>
+					<%= link_to(employees_path) do %>
+						<i class="menu-icon fa fa-users"></i><span class="mm-text">Funcionários</span>
+					<% end %>
 				</li>
 			</ul> <!-- / .navigation -->
 			<div class="menu-content">
-				<a href="pages-invoice.html" class="btn btn-primary btn-block btn-outline dark">Indicar Amigo</a>
+				<a href="https://docs.google.com/uc?export=download&id=0B0WcymPd-XTDbEN0bVBxcW1sMms" class="btn btn-primary btn-block btn-outline dark"><span class="mm-text">Download Aplicativo</span></a>
 			</div>
 		</div> <!-- / #main-menu-inner -->
 	</div> <!-- / #main-menu -->

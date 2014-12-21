@@ -23,8 +23,6 @@ class RoutesController < ApplicationController
   def create
     @route = Route.new(route_params)
 
-    set_initial_and_final_chk_points
-
     if @route.save
       redirect_to @route, notice: 'Rota criada com sucesso'
     else
@@ -34,8 +32,6 @@ class RoutesController < ApplicationController
 
   # PATCH/PUT /routes/1
   def update
-
-    set_initial_and_final_chk_points
 
     if @route.update(route_params)
       redirect_to @route, notice: 'Route atualizada.'
@@ -51,17 +47,6 @@ class RoutesController < ApplicationController
   end
 
   private
-
-  def set_initial_and_final_chk_points
-    lastRow = firstRow = nil
-    @route.checkpoints.each do |checkpoint|
-      if (!lastRow and !firstRow) then lastRow = firstRow = checkpoint; end
-      if(lastRow.row_order > checkpoint.row_order) then lastRow = checkpoint end
-      if(firstRow.row_order < checkpoint.row_order) then firstRow = checkpoint end
-      @route.initial_checkpoint = firstRow
-      @route.final_checkpoint = lastRow
-    end
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_route

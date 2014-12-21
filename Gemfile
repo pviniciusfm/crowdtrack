@@ -33,7 +33,9 @@ gem 'binding_of_caller'
 gem 'jquery-datatables-rails', '~> 3.0.0'
 gem 'rqrcode'
 gem 'ranked-model'
-gem 'omniauth-facebook'
+gem 'handlebars_assets'
+gem 'morrisjs-rails'
+gem 'raphael-rails'
 
 group :development do
   gem "spring"

@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   end
 
   resources :trips do
+    resources :shared_infos
     resources :tracks, only: [:new, :create]
   end
 
@@ -49,6 +50,8 @@ Rails.application.routes.draw do
   end
 
   get 'maps', :to => 'tracks#index'
+
+  get 'dashboard', :to => 'dashboard#index'
 
   get 'home/index'
 

@@ -7,11 +7,28 @@ pt-BR:
   vehicle:
     title: 'Veículo'
   activerecord:
+    models:
+      vehicle: "Veículo"
+      route: "Rota"
+      employee: "Funcionário"
+      company: "Empresa"
     attributes:
       vehicle:
         description: 'Descrição'
         public_identifier: 'Placa'
         company: "Empresa"
+        special_need_prep: "Possui Elevador"
       route:
         title: "Rota"
         label: "Nome"
+  survey:
+    capacity:
+      empty: 'Vazio'
+      with_seats: 'Assentos'
+      people_standing: 'Somente em pé'
+      crowdy: 'Lotado'
+    traffic:
+      good: 'Livre'
+      normal: 'Normal'
+      slow: 'Lento'
+      very_slow: 'Engarrafado'

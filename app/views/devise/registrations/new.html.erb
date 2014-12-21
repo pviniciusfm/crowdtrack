@@ -33,22 +33,23 @@
 			</div>
 
 			<div class="form-group w-icon">
-				<%= f.input :name, label: false, required: true,placeholder:"Digite o seu nome", autofocus: true, input_html: { :class => "form-control input-lg"}  %>
+					<%= f.input_field :name, label: false, required: true, placeholder:"Digite o seu nome", autofocus: true, class: 'form-control input-lg'  %>
 				<span class="fa fa-info signup-form-icon"></span>
 			</div>
 
 			<div class="form-group w-icon">
-				<%= f.input :email, placeholder:"Digite o seu e-mail", label: false, required: true, autofocus: true, input_html: { :class => "form-control input-lg"}  %>
+					<%= f.input_field :email, placeholder:"Digite o seu e-mail", label: false, required: true,class: 'form-control input-lg' %>
 				<span class="fa fa-envelope signup-form-icon"></span>
 			</div>
 
 			<div class="form-group w-icon">
-				<%= f.input :password, placeholder:"Digite uma senha", label: false, required: true, autofocus: true, input_html: { :class => "form-control input-lg"}  %>
+					<%= f.input_field :password, placeholder:"Digite uma senha", required: true,class: 'form-control input-lg' %>
 				<span class="fa fa-lock signup-form-icon"></span>
 			</div>
 
 			<div class="form-group w-icon">
-				<%= f.input :password_confirmation, placeholder:"Digite a senha novamente", label: false, required: true, autofocus: true, input_html: { :class => "form-control input-lg"}  %>
+					<%= f.input_field :password_confirmation,
+				placeholder:"Digite a senha novamente", required: true, autofocus: true,class: 'form-control input-lg' %>
 				<span class="fa fa-lock signup-form-icon"></span>
 			</div>
 

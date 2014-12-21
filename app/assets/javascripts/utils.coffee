@@ -5,7 +5,7 @@
 unless String.prototype.endsWith
   ###
    * Determines whether a string ends with the specified suffix.
-   * 
+   *
    * @param  {String} suffix
    * @return Boolean
   ###
@@ -15,7 +15,7 @@ unless String.prototype.endsWith
 unless String.prototype.trim
   ###
    * Removes whitespace from both sides of a string.
-   * 
+   *
    * @return {String}
   ###
   String.prototype.trim = ->
@@ -24,14 +24,14 @@ unless String.prototype.trim
 unless Array.prototype.indexOf
   ###
    * The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
-   * 
+   *
    * @param  {Variant} searchElement
    * @param  {Integer} fromIndex
    * @return {Integer}
   ###
   Array.prototype.indexOf = (searchElement, fromIndex) ->
     throw new TypeError('"this" is null or not defined') if @ is undefined or @ is null
-    
+
     length = this.length >>> 0
     fromIndex = +fromIndex || 0
     fromIndex = 0 if Math.abs(fromIndex) is Infinity
@@ -100,7 +100,7 @@ unless Object.keys
 
 ###
  * Detect screen size.
- * 
+ *
  * @param  {jQuery Object} $ssw_point
  * @param  {jQuery Object} $tsw_point
  * @return {String}
@@ -118,4 +118,3 @@ window.elHasClass = (el, selector) ->
 
 window.elRemoveClass = (el, selector) ->
   el.className = (" " + el.className + " ").replace(" " + selector + " ", ' ').trim()
-

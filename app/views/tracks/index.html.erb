@@ -12,11 +12,53 @@
 <% end %>
 
 <% content_for :javascript do %>
+
+  <!-- HANDLEBARS TEMPLATE -->
+  <script id="infoWindowTemplate" type="text/x-handlebars-template">
+    <div class="info-window">
+      <h3><span class="label label-info"><i class="fa fa-wheelchair"></i></span>{{title}}</h3>
+      <p>Último Comentário em {{created_at}}</p>
+      <p>{{comments}}</p>
+
+      <span class="label {{capacitity_rank.html}}">{{capacitity_rank.name}}</span>
+      <span class="label {{traffic_rank.html}}">{{traffic_rank.name}}</span>
+      <a href="{{all_shares_link}}">Todos Comentários</a>
+    </div>
+  </script>
+
    <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdiNjYdaziEZ4TnWakC7FjdASmTcGebpg">
     </script>
+
     <script>
     init.push(function () {
+
+        var html_class = {
+          good: 'label-success',
+          normal: 'label-info',
+          slow: 'label-warning',
+          very_slow: 'label-danger',
+          empty: 'label-success',
+          with_seats: 'label-info',
+          people_standing: 'label-warning',
+          crowdy: 'label-danger'
+        }
+
+        var translated_name = {
+          good: 'Livre',
+          normal: 'Normal',
+          slow: 'Lento',
+          very_slow: 'Muito Lento',
+          empty: 'Vazio',
+          with_seats: 'Com Assentos',
+          people_standing: 'Em pé',
+          crowdy: 'Lotado'
+        }
+
+        var infoWindowTemplateElement = document.getElementById("infoWindowTemplate").innerHTML;
+        var template = Handlebars.compile(infoWindowTemplateElement);
+
+        var busPin = "<%= asset_path('bus-pin.png') %>";
 
         var map = new GMaps({
           div: '#mapTrack',
@@ -25,26 +67,47 @@
         });
 
         $("#searchTrack").on("ajax:success",function(e, data, status, xhr){
-          var path = data.map(function(map){
-            var newArray = [map.latitude,map.longitude];
-            return newArray;
-          });
 
-          map.drawPolyline({
-            path: path,
-            strokeColor: '#131540',
-            strokeOpacity: 0.6,
-            strokeWeight: 6
-          });
+          jQuery.each(data,function(index,trip){
+            var path = trip.tracks.map(function(map){
+              var newArray = [map.latitude,map.longitude];
+              return newArray;
+            });
 
-          var lastActivity = path[0];
-          map.addMarker({
-            lat: lastActivity[0],
-            lng: lastActivity[1],
-            title: 'Onibus'
-          });
+            infoWindowData = {
+              title: trip.route.label,
+              capacitity_rank: {
+                name: translated_name[trip.last_comment.capacity_rank],
+                html: html_class[trip.last_comment.capacity_rank]
+              },
+              traffic_rank: {
+                name: translated_name[trip.last_comment.traffic_rank],
+                html: html_class[trip.last_comment.traffic_rank]
+              },
+              comments: trip.last_comment.comments,
+              created_at: trip.last_comment.created_at,
+              all_shares_link: '/trips/'+trip.id+'/shared_infos'
+            }
 
-        });
+            map.drawPolyline({
+              path: path,
+              strokeColor: '#131540',
+              strokeOpacity: 0.6,
+              strokeWeight: 6
+            });
+
+            var lastActivity = path[path.length-1];
+            map.addMarker({
+              lat: lastActivity[0],
+              lng: lastActivity[1],
+              title: infoWindowData.title,
+              infoWindow: {
+                 content: template(infoWindowData)
+              },
+              icon: busPin
+            });
+          });//end each
+        });//ajax
     });
   </script>
 <% end %>

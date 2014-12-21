@@ -113,6 +113,11 @@ GEM
       activesupport
       capybara
       i18n
+    handlebars_assets (0.18)
+      execjs (>= 1.2.9)
+      multi_json
+      sprockets (>= 2.0.3)
+      tilt
     hashie (3.3.1)
     high_voltage (2.2.1)
     highline (1.6.21)
@@ -146,6 +151,8 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.4.1)
+    morrisjs-rails (0.5.1)
+      railties (> 3.1, < 5)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -212,6 +219,7 @@ GEM
     rake (10.3.2)
     ranked-model (0.4.0)
       activerecord (>= 3.1.12)
+    raphael-rails (2.1.2)
     recipient_interceptor (0.1.2)
       mail
     rqrcode (0.4.2)
@@ -309,11 +317,13 @@ DEPENDENCIES
   factory_girl_rails
   flutie
   formulaic
+  handlebars_assets
   high_voltage
   i18n-tasks
   jquery-datatables-rails (~> 3.0.0)
   jquery-rails
   launchy
+  morrisjs-rails
   newrelic_rpm (>= 3.7.3)
   normalize-rails (~> 3.0.0)
   omniauth
@@ -326,6 +336,7 @@ DEPENDENCIES
   rails (= 4.1.4)
   rails_12factor
   ranked-model
+  raphael-rails
   recipient_interceptor
   rqrcode
   rspec-rails (~> 3.0.0)

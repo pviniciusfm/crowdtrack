@@ -4,8 +4,10 @@ class TracksController < ApplicationController
   # GET /tracks
   def index
     if not params[:search].nil?
-      @tracks = Track.search_route params[:search]
-      render json: @tracks
+      @trips = Trip.search_open_routes params[:search]
+      if @trips then
+        render json: @trips.to_json(:include => [:tracks,:vehicle,:route,:last_comment])
+      end
     end
   end
 

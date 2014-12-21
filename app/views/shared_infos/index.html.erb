@@ -1,0 +1,37 @@
+  <div class="col-md-12">
+
+
+        <div class="panel panel-dark-gray" id="dashboard-recent">
+          <div class="panel-heading">
+            <span class="panel-title"><i class="panel-title-icon fa fa-fire text-danger"></i>Últimos Check-In Viagem #<%= @trip.id %> </span>
+          </div> <!-- / .panel-heading -->
+          <!-- Comments widget -->
+
+          <!-- Without padding -->
+          <div class="panel-body no-padding" id="dashboard-recent-comments">
+            <!-- Panel padding, without vertical padding -->
+            <div class="panel-padding">
+              <% @shared_infos.each do |shared_info| %>
+                <div class="comment">
+                  <img width="40" height="40" src="<%= asset_path('pixel-admin/avatar.png') %>" alt="" class="pull-left" style="width: 40px; height: 40px; margin-right: 5px;">
+                  <div class="comment-body">
+                    <div class="comment-by">
+                      <a href="#"><%= shared_info.user.name %></a> comentou:
+                    </div>
+                    <div class="comment-text">
+                      <%= shared_info.comments %>
+                    </div>
+                    <div class="comment-actions">
+                      <span class="label <%= shared_info.capacity_rank.html_class %>"><%= shared_info.capacity_rank.human_name %></span>
+                      <span class="label <%= shared_info.traffic_rank.html_class %>"><%= shared_info.traffic_rank.human_name %></span>
+                      <span class="pull-right"><%= shared_info.created_at %></span>
+                    </div>
+                  </div> <!-- / .comment-body -->
+                </div> <!-- / .comment -->
+              <% end %>
+            </div>
+          </div> <!-- / .widget-comments -->
+
+          </div> <!-- / .panel-body -->
+        </div> <!-- / .widget-threads -->
+      </div>

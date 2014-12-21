@@ -16,7 +16,13 @@ company = Company.new
 company.name = "Viação Fake LTDA."
 company.save!
 
+route = Route.new
+route.label = 2101
+route.company = company
+route.save!
+
 ini_chk = Checkpoint.new
+ini_chk.route = route
 ini_chk.label = "Av. Silva lobo, 2051"
 ini_chk.latitude = -19.94184
 ini_chk.longitude = -43.965417
@@ -24,18 +30,12 @@ ini_chk.row_order = 1
 ini_chk.save!
 
 final_chk = Checkpoint.new
+final_chk.route = route
 final_chk.label = "Rua Professor Mello Cançado, 273"
 final_chk.latitude = -19.958989
 final_chk.longitude = -43.9292619
 final_chk.row_order = 2
 final_chk.save!
-
-route = Route.new
-route.label = 2101
-route.company = company
-route.initial_checkpoint = ini_chk
-route.final_checkpoint = final_chk
-route.save!
 
 vehicle = Vehicle.new
 vehicle.description = "Mercedes 2011/2012 - 42 / Diesel"
@@ -92,4 +92,13 @@ track_one_list =
 
 track_one_list.each do |latitude,longitude|
 	Track.create(latitude: latitude, longitude: longitude, accuracy: 80.0,trip: trip)
+end
+
+SharedInfo.new do |shared|
+	shared.user = user
+	shared.trip = trip
+	shared.capacity_rank = 'crowdy'
+	shared.traffic_rank = 'normal'
+    shared.comments = "Muito Lotado e o ônibus está com um mal cheiro horrível."
+    shared.save!
 end

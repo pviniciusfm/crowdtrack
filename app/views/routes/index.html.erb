@@ -8,24 +8,49 @@
 <div class="row">
 <% @routes.each do |route| %>
 
-      <div class="col-sm-2 col-md-2">
+      <%= link_to edit_route_path(route) do %>
+        <div class="col-md-6">
+            <div class="stat-panel">
+              <!-- Danger background, vertically centered text -->
+              <div class="stat-cell bg-info valign-middle">
 
-          <div class="stat-panel">
-            <!-- Danger background, vertically centered text -->
-            <div class="stat-cell bg-info valign-middle">
-              <%= link_to edit_route_path(route) do %>
-              <!-- Stat panel bg icon -->
-              <i class="fa fa-bus bg-icon"></i>
-              <!-- Extra large text -->
-              <span class="text-xlg"><strong><%= route.label %></strong></span><br>
-              <!-- Big text -->
-              <span class="text-bg"><%= route.initial_checkpoint.label %> à <%= route.final_checkpoint.label %></span><br>
-              <!-- Small text -->
-              <span class="text-sm"><a href="#"></a></span>
-              <% end #link_to %>
-            </div> <!-- /.stat-cell -->
-          </div> <!-- /.stat-panel -->
+                <!-- Stat panel bg icon -->
+                <i class="fa fa-bus bg-icon"></i>
+                <!-- Extra large text -->
+                <span class="text-xlg"><strong><%= route.label %></strong></span><br>
+                <!-- Big text -->
+                <table>
+                  <tr>
+                    <td align="right"><span class="text-bg"><strong>Inicio:</strong></span></td>
+                    <td><span class="text-bg"><%= if route.initial_checkpoint then route.initial_checkpoint.label end %></span></td>
+                  </tr>
+                  <tr>
+                    <td align="right"><span class="text-bg"><strong>Fim:</strong></span></td>
+                    <td><span class="text-bg"><%= if route.final_checkpoint then route.final_checkpoint.label end %></span></td>
+                  </tr>
+                </table>
+              </div> <!-- /.stat-cell -->
+            </div> <!-- /.stat-panel -->
         </div>
+      <% end #link_to %>
 
     <% end #each %>
 </div>
+
+<% content_for :javascript do %>
+  <script>
+  //   var equalHeight = function(group) {
+  //     tallest = 0;
+  //     group.each(function() {
+  //       thisHeight = $(this).height();
+  //       if(thisHeight > tallest) {
+  //          tallest = thisHeight;
+  //       }
+  //     });
+  //     group.height(tallest);
+  //   }
+  //   init.push(function () {
+  //     equalHeight($(".stat-panel"));
+  //   });
+  </script>
+<% end %>

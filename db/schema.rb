@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210051609) do
+ActiveRecord::Schema.define(version: 20141221000101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,15 +76,24 @@ ActiveRecord::Schema.define(version: 20141210051609) do
   create_table "routes", force: true do |t|
     t.string   "label"
     t.integer  "company_id"
-    t.integer  "initial_checkpoint_id"
-    t.integer  "final_checkpoint_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "routes", ["company_id"], name: "index_routes_on_company_id", using: :btree
-  add_index "routes", ["final_checkpoint_id"], name: "index_routes_on_final_checkpoint_id", using: :btree
-  add_index "routes", ["initial_checkpoint_id"], name: "index_routes_on_initial_checkpoint_id", using: :btree
+
+  create_table "shared_infos", force: true do |t|
+    t.string   "capacity_rank"
+    t.string   "traffic_rank"
+    t.string   "comments"
+    t.integer  "trip_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shared_infos", ["trip_id"], name: "index_shared_infos_on_trip_id", using: :btree
+  add_index "shared_infos", ["user_id"], name: "index_shared_infos_on_user_id", using: :btree
 
   create_table "tracks", force: true do |t|
     t.integer  "trip_id"

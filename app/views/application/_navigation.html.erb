@@ -1,4 +1,4 @@
-<!-- 2. $MAIN_NAVIGATION ===========================================================================
+2. $MAIN_NAVIGATION ===========================================================================
 
 	Main navigation
 -->
@@ -11,10 +11,10 @@
 			<div class="navbar-header">
 
 				<!-- Logo -->
-				<a href="index.html" class="navbar-brand">
+				<%= link_to root_path,class: 'navbar-brand'  do %>
 					<div><%= image_tag("pixel-admin/main-navbar-logo.png", :alt => 'CrowdTrack') %></div>
 					CrowdTrack
-				</a>
+				<% end %>
 
 				<!-- Main navbar toggle -->
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse"><i class="navbar-icon fa fa-bars"></i></button>
@@ -27,7 +27,7 @@
 						<li>
 							<a href="#">Home</a>
 						</li>
-						<li class="dropdown">
+						<!-- <li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
 							<ul class="dropdown-menu">
 								<li><a href="#">First item</a></li>
@@ -35,7 +35,7 @@
 								<li class="divider"></li>
 								<li><a href="#">Third item</a></li>
 							</ul>
-						</li>
+						</li> -->
 					</ul> <!-- / .navbar-nav -->
 
 					<div class="right clearfix">
@@ -91,75 +91,12 @@
 									<a href="#" class="notifications-link">Ver todas notificações</a>
 								</div> <!-- / .dropdown-menu -->
 							</li>
-							<li class="nav-icon-btn nav-icon-btn-success dropdown">
-								<a href="#messages" class="dropdown-toggle" data-toggle="dropdown">
-									<span class="label">10</span>
-									<i class="nav-icon fa fa-envelope"></i>
-									<span class="small-screen-text">Income messages</span>
-								</a>
 
-								<!-- MESSAGES -->
-
-								<!-- Javascript -->
-								<script>
-									init.push(function () {
-										$('#main-navbar-messages').slimScroll({ height: 250 });
-									});
-								</script>
-								<!-- / Javascript -->
-
-								<div class="dropdown-menu widget-messages-alt no-padding" style="width: 300px;">
-									<div class="messages-list" id="main-navbar-messages">
-
-										<div class="message">
-											<%= image_tag "pixel-admin/avatar.png", :class => 'message-avatar' %>
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-											<div class="message-description">
-												from <a href="#">Robert Jang</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<%= image_tag "pixel-admin/avatar.png", :class => 'message-avatar' %>
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-											<div class="message-description">
-												from <a href="#">Michelle Bortz</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<%= image_tag "pixel-admin/avatar.png", :class => 'message-avatar' %>
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-											<div class="message-description">
-												from <a href="#">Michelle Bortz</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<%= image_tag "pixel-admin/avatar.png", :class => 'message-avatar' %>
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet.</a>
-											<div class="message-description">
-												from <a href="#">Timothy Owens</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-									</div> <!-- / .messages-list -->
-									<a href="#" class="messages-link">Ver todas</a>
-								</div> <!-- / .dropdown-menu -->
-							</li>
 <!-- /3. $END_NAVBAR_ICON_BUTTONS -->
 
 							<li>
 								<form class="navbar-form pull-left">
-									<input type="text" class="form-control" placeholder="Search">
+									<input type="text" class="form-control" placeholder="Procurar Rota">
 								</form>
 							</li>
 
@@ -182,4 +119,4 @@
 			</div> <!-- / #main-navbar-collapse -->
 		</div> <!-- / .navbar-inner -->
 	</div> <!-- / #main-navbar -->
-<!-- /2. $END_MAIN_NAVIGATION -->
+<!-- /2. $END_MAIN_NAVIGATION
