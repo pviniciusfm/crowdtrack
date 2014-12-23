@@ -76,17 +76,20 @@
 
             infoWindowData = {
               title: trip.route.label,
-              capacitity_rank: {
+              all_shares_link: '/trips/'+trip.id+'/shared_infos'
+            };
+
+            if (trip.last_comment){
+              infoWindowData.capacitity_rank = {
                 name: translated_name[trip.last_comment.capacity_rank],
                 html: html_class[trip.last_comment.capacity_rank]
-              },
-              traffic_rank: {
+              };
+              infoWindowData.traffic_rank = {
                 name: translated_name[trip.last_comment.traffic_rank],
                 html: html_class[trip.last_comment.traffic_rank]
-              },
-              comments: trip.last_comment.comments,
-              created_at: trip.last_comment.created_at,
-              all_shares_link: '/trips/'+trip.id+'/shared_infos'
+              };
+              infoWindowData.comments =  trip.last_comment.comments;
+              infoWindowData.created_at = trip.last_comment.created_at;
             }
 
             map.drawPolyline({
