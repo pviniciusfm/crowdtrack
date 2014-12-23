@@ -8,14 +8,15 @@ class Api::V1::TripsController < ApplicationController
 	#before_filter :fetch_user
 
 	def start
+		open_trip = Trip.find_open(params[:vehicle_id])
+		if open_trip then trip.end() end
 		@trip = Trip.new(trip_params)
 		@trip.save!
 		respond_with @trip
 	end
 
 	def end
-		@trip.end_time_at = Time.now
-		@trip.save!
+		@trip.end()
 		respond_with @trip
 	end
 

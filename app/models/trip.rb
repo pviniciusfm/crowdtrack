@@ -9,7 +9,15 @@ class Trip < ActiveRecord::Base
   		joins(:route,:tracks).where("routes.label LIKE ? and end_time_at is null", "%#{search}%")
 	end
 
+	def self.find_open(vehicle)
+		where("vehicle_id = ? and end_time_at is null",vehicle).order('created_at DESC').limit(1).first
+	end
+
 	def last_comment
 		SharedInfo.joins(:trip).where(:trips => {id:id}).order('created_at DESC').limit(1).first
+	end
+	def end
+		end_time_at = Time.now
+		save!
 	end
 end

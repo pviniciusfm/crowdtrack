@@ -12,6 +12,8 @@ Rails.application.routes.draw do
           post 'end'
         end
       end
+
+      post 'share', :to => "shared_infos#share"
       resources :authentication do
         post "auth", :to => "authentication#authenticate"
       end
